@@ -1,0 +1,70 @@
+<template>
+  <nav class="nav">
+    <ul class="nav__list">
+      <li>
+        <router-link class="nav__link" :to="Tr.i18nRoute({name: 'home'})">{{ $t('nav.home') }}</router-link>
+      </li>
+      <li>
+        <router-link class="nav__link" :to="Tr.i18nRoute({name: 'my-locations'})">{{
+            $t('nav.my-locations')
+          }}
+        </router-link>
+      </li>
+    </ul>
+
+    <input type="search" list="citiesList" v-model="city" @input="getTheCitiesList">
+
+    <!--    <datalist>-->
+    <!--      <option v-for="city in getTheCitiesList" :>-->
+    <!--        {{ city }}-->
+    <!--      </option>-->
+    <!--    </datalist>-->
+
+    <TheLangSwitcher/>
+
+  </nav>
+</template>
+
+<script setup>
+import Tr from "@/i18n/translation";
+import TheLangSwitcher from "@/components/common/TheLangSwitcher.vue";
+import {ref} from "vue";
+import {useI18n} from "vue-i18n";
+
+const city = ref('')
+const i18n = useI18n()
+
+
+console.log()
+const getTheCitiesList = async () => await fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&libraries=places&types=administrative_area_level_1&language=${i18n.locale.value}&input=${city.value}`)
+
+
+</script>
+
+<style lang="scss" scoped>
+.nav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  gap: 30px;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 20px;
+
+    &:hover {
+      color: var(--accent-color)
+    }
+  }
+}
+</style>

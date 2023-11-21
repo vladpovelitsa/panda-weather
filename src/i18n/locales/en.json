@@ -1,0 +1,10 @@
+{
+  "locale": {
+    "en": "English",
+    "uk": "Ukrainian"
+  },
+  "nav": {
+    "home": "Home",
+    "my-locations": "My locations"
+  }
+}

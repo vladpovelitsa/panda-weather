@@ -1,0 +1,16 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  background: var(--basic-color);
+  color: var(--main-color);
+}
+
+.center {
+  padding-left: calc(50vw - 600px);
+  padding-right: calc(50vw - 600px);
+}
+
+button, a {
+  cursor: pointer;
+  transition: .3s;
+}
