@@ -13,6 +13,10 @@
 
 <script setup>
 import TheNav from "@/components/common/TheNav.vue";
+import {useI18n} from "vue-i18n";
+
+const i18n = useI18n()
+
 </script>
 
 <style lang="scss" scoped>

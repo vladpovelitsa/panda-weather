@@ -1,5 +1,6 @@
 import i18n from "@/i18n"
 import {nextTick} from "vue"
+import {useGmapScript} from "@/use/useGmapScript";
 
 const Trans = {
     get defaultLocale() {
