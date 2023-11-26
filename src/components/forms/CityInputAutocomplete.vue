@@ -1,31 +1,50 @@
 <template>
-  <div>
-    <input type="text" id="test" placeholder="placeholder" class="autocomplete">
-  </div>
+  <input type="text" id="city" :placeholder="placeholder" class="autocomplete" :value="modelValue"
+         :disabled="disabled"
+         ref="autocompleteInput">
 </template>
 
 <script setup>
-import {useI18n} from "vue-i18n";
 import {useGmapScript} from "@/use/useGmapScript";
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
+
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: '',
+  },
+  placeholder: {
+    type: String,
+    default: '',
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  }
+
+})
+const emit = defineEmits(['update:modelValue'])
+const autocompleteInput = ref(null)
 
 let autocomplete
-const i18n = useI18n()
 const loadApi = async () => {
   await useGmapScript()
 
-  autocomplete = new google.maps.places.Autocomplete(document.querySelector('#test'), {
+  autocomplete = new window.google.maps.places.Autocomplete(document.querySelector('#city'), {
     types: ['locality'],
     fields: ['formatted_address']
   })
   autocomplete.addListener('place_changed', function () {
-    let city = autocomplete.getPlace().formatted_address.split(',')[0]
-    console.log(city)
+    let city = autocomplete.getPlace().formatted_address
+    emit('update:modelValue', city)
   })
+
 }
 
-onMounted(() => {
-  loadApi()
+onMounted(async () => {
+  await loadApi()
+  autocompleteInput.value.focus()
+
 })
 
 </script>
@@ -34,12 +53,22 @@ onMounted(() => {
 .autocomplete {
   font-size: 20px;
   border: none;
-  border-bottom: 2px solid var(--accent-color);
-  color: #fff;
-  padding: 0 10px 5px;
+  color: var(--main-color);
+  padding: 30px 0;
   background: none;
   outline: none;
   width: 100%;
-  text-align: center;
+  display: block;
+  @media screen and (max-width: 750px) {
+    padding: 15px 0;
+  }
+}
+
+.hidden {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: none;
+  opacity: 0;
 }
 </style>

@@ -12,8 +12,6 @@ export function useGmapScript() {
                 delete window.google
 
             }
-            console.log('test2')
-
             const gScript = document.createElement("script");
             gScript.id = 'gmapscript'
             gScript.setAttribute(

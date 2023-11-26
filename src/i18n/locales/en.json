@@ -1,4 +1,6 @@
 {
+  "app-title": "Weather",
+  "change-theme": "Change theme",
   "locale": {
     "en": "English",
     "uk": "Ukrainian"
@@ -6,5 +8,24 @@
   "nav": {
     "home": "Home",
     "my-locations": "My locations"
+  },
+  "form": {
+    "placeholder": "Type city",
+    "add": "Add new",
+    "too-many-cities": "Max 5 cities, remove one to add new"
+  },
+  "card": {
+    "by-hours": "Hourly",
+    "by-days": "Daily",
+    "remove": "Remove",
+    "feels-like": "Feels like",
+    "ms": "m/s",
+    "hpa": "hPa",
+    "km": "km",
+    "humidity": "Humidity",
+    "visibility": "visibility",
+    "temp": "Temperature",
+    "to-fav": "To fav",
+    "remove-fav": "Remove fav"
   }
 }

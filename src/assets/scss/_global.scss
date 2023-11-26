@@ -1,13 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
+  min-height: 100vh;
+}
+
+#app {
   background: var(--basic-color);
   color: var(--main-color);
+  min-height: 100vh;
 }
 
 .center {
   padding-left: calc(50vw - 600px);
   padding-right: calc(50vw - 600px);
+
+  @media screen and (max-width: 1250px) {
+    padding-left: calc(50vw - 320px);
+    padding-right: calc(50vw - 320px);
+  }
+  @media screen and (max-width: 750px) {
+    padding-left: calc(50vw - 190px);
+    padding-right: calc(50vw - 190px);
+  }
+  @media screen and (max-width: 405px) {
+    padding-left: calc(50vw - 170px);
+    padding-right: calc(50vw - 170px);
+  }
 }
 
 button, a {

@@ -2,5 +2,11 @@
   --basic-color: #f3f4ef;
   --main-color: #303235;
   --accent-color: #e85233;
-  --box-shadow: 0 0 5px rgba(0, 0, 0, .05);
+  --box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.dark-theme {
+  --basic-color: #303235;
+  --main-color: #f3f4ef;
+  --box-shadow: 0 0 5px rgba(255, 255, 255, .3);
 }
