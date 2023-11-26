@@ -56,5 +56,9 @@ const switchLanguage = async (e) => {
       font-weight: 700;
     }
   }
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+  }
 }
 </style>

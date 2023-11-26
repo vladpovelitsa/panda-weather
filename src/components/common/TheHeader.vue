@@ -40,9 +40,9 @@ const switchTheme = () => {
   box-shadow: var(--box-shadow);
 
   @media screen and (max-width: 750px) {
-    grid-template-columns: 75px 1fr;
+    grid-template-columns: 100px 1fr;
     justify-content: space-between;
-    gap: 30px 15px;
+    gap: 15px 30px;
   }
 }
 
