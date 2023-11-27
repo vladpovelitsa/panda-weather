@@ -1,8 +1,13 @@
 <template>
   <main>
     <div class="fav-list center">
-      <city-card v-for="city in JSON.parse(citiesList)" :key="city.id+i18n.locale.value" :name="city.name"
-                 :id="city.id"/>
+      <div v-if="JSON.parse(citiesList).length > 0">
+        <city-card v-for="city in JSON.parse(citiesList)" :key="city.id+i18n.locale.value" :name="city.name"
+                   :id="city.id"/>
+      </div>
+      <p v-else>
+        {{ $t('no-favs') }}
+      </p>
     </div>
   </main>
 </template>

@@ -34,5 +34,6 @@
     "to-fav": "To fav",
     "remove-fav": "Remove fav",
     "trying-delete": "You trying to delete"
-  }
+  },
+  "no-face": "You have not yet added any city to your favorites"
 }
