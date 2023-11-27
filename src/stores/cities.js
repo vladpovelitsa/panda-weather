@@ -1,5 +1,6 @@
 import {ref} from 'vue'
 import {defineStore} from 'pinia'
+import i18n from "@/i18n";
 
 export const useCitiesStore = defineStore('cities', () => {
     const citiesList = ref([])
@@ -10,7 +11,7 @@ export const useCitiesStore = defineStore('cities', () => {
             if (isCityAdded < 0) {
                 citiesList.value.push({name: data, id: Date.now()})
             } else {
-                throw new Error(data + ' already added')
+                throw new Error(data + i18n.t('form.already-added'))
             }
         } catch (err) {
             console.error(err)

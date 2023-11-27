@@ -64,23 +64,26 @@
 
     </div>
     <div v-else-if="!loading && weather.cod !== 200">
-      error has been observed
+      {{ $t('error') }}
     </div>
     <div v-else-if="loading">
-      Loading...
+      {{ $t('loading') }}
     </div>
   </article>
 
   <teleport to="body">
     <modal v-if="showModal" v-model="showModal">
       <template #title>
-        You trying to delete {{ weather.name }}. <br>
-        Are you sure?
+        {{ $t('city-card.trying-delete') }} {{ weather.name }}. <br>
+        {{ $t('trying-delete') }}
       </template>
       <template #content>
         <div class="deleting-buttons">
-          <button class="city-card__btn" @click="(citiesStore.removeCity(props.id), showModal = false)">Yes</button>
-          <button class="city-card__btn" @click="showModal = false">No</button>
+          <button class="city-card__btn" @click="(citiesStore.removeCity(props.id), showModal = false)">{{
+              $t('yes')
+            }}
+          </button>
+          <button class="city-card__btn" @click="showModal = false">{{ $t('no') }}</button>
         </div>
       </template>
 
@@ -189,17 +192,20 @@ const updateFav = () => {
       name: weather.value.name,
       id: weather.value.id
     }]))
-  } else if (JSON.parse(localStorage.getItem('my-locations')).length >= 5) {
-    alert(i18n.t('form.too-many-cities'))
-    return null
   } else {
     const favs = JSON.parse(localStorage.getItem('my-locations'))
     const itemIndex = favs.findIndex(item => +item.id === +weather.value.id)
     if (itemIndex < 0) {
-      favs.push({
-        name: weather.value.name,
-        id: weather.value.id
-      })
+      if (JSON.parse(localStorage.getItem('my-locations')).length >= 5) {
+        alert(i18n.t('form.too-many-cities'))
+        return null
+      } else {
+        favs.push({
+          name: weather.value.name,
+          id: weather.value.id
+        })
+      }
+
     } else {
       favs.splice(itemIndex, 1)
     }

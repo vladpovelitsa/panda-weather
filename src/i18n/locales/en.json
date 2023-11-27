@@ -1,18 +1,24 @@
 {
   "app-title": "Weather",
-  "change-theme": "Change theme",
+  "change-theme": "Change theme (dark/light)",
+  "sure": "Are you sure?",
+  "yes": "Yes",
+  "no": "No",
+  "loading": "Loading...",
+  "error": "error has been observed",
   "locale": {
     "en": "English",
     "uk": "Ukrainian"
   },
   "nav": {
-    "home": "Home",
-    "my-locations": "My locations"
+    "home": "Search",
+    "my-locations": "Favorites"
   },
   "form": {
     "placeholder": "Type city",
     "add": "Add new",
-    "too-many-cities": "Max 5 cities, remove one to add new"
+    "too-many-cities": "Max 5 cities, remove one to add new",
+    "already-added": " already added"
   },
   "card": {
     "by-hours": "Hourly",
@@ -26,6 +32,7 @@
     "visibility": "visibility",
     "temp": "Temperature",
     "to-fav": "To fav",
-    "remove-fav": "Remove fav"
+    "remove-fav": "Remove fav",
+    "trying-delete": "You trying to delete"
   }
 }
